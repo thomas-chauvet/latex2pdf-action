@@ -22,7 +22,7 @@ jobs:
         with:
           output_dir: output
           main_latex_file: test.tex
-          ctan_packages: epsfig
+          ctan_packages: amssymb latexsym amsmath
       - name: Upload PDF to the workflow tab
         id: upload-workflow-tab
         uses: actions/upload-artifact@v2
