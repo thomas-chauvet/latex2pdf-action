@@ -1,0 +1,31 @@
+name: LateX CV to PDF
+
+on:
+  push:
+    branches: 
+      - main
+      - develop
+    tags:
+       - '*'
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v2
+      - name: Compile LaTeX document
+        id: compile-latex-document
+        uses: ./
+        with:
+          output_dir: output
+          main_latex_file: test.tex
+          ctan_packages: epsfig
+      - name: Upload PDF to the workflow tab
+        id: upload-workflow-tab
+        uses: actions/upload-artifact@v2
+        with:
+          name: output
+          path: output/test.pdf
