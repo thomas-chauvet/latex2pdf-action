@@ -3,12 +3,12 @@ name: LateX CV to PDF
 on:
   push:
     branches: 
-      - main
+      - master
       - develop
     tags:
        - '*'
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
 
 jobs:
   build_latex:
