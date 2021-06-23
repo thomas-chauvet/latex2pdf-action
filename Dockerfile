@@ -8,7 +8,9 @@ RUN apt-get update && apt-get install -y perl wget libfontconfig1 && \
     apt-get clean
 ENV PATH="${PATH}:/root/bin"
 
-RUN tlmgr update --self
+RUN tlmgr update --self --all
+RUN tlmgr path add
+RUN fmtutil-sys --all
 
 WORKDIR /
 
