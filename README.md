@@ -37,7 +37,7 @@ jobs:
         uses: actions/checkout@v2
       - name: latex2pdf
         id: compile-latex-document
-        uses: thomas-chauvet/latex2pdf-action@1.0.1
+        uses: thomas-chauvet/latex2pdf-action@1.0.2
         with:
           output_dir: output
           main_latex_file: test.tex
