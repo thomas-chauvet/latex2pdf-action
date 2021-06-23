@@ -1,5 +1,8 @@
 name: 'latex2pdf'
 description: 'Convert LaTeX file into PDF file.'
+branding:
+  icon: 'check-circle'
+  color: 'green'
 inputs:
   output_dir:
     description: "Output directory to store the pdf file."
