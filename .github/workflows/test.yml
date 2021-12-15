@@ -18,14 +18,14 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Compile test LaTeX document with Maths
-        id: compile-latex-document-with-math
+        id: compile-latex-document-with-maths
         uses: ./
         with:
           output_dir: output
           main_latex_file: test.tex
           ctan_packages: amssymb latexsym amsmath
       - name: Upload PDF to the workflow tab
-        id: upload-workflow-tab
+        id: upload-workflow-tab-maths
         uses: actions/upload-artifact@v2
         with:
           name: output
@@ -39,7 +39,7 @@ jobs:
           main_latex_file: test-fontawesome.tex
           ctan_packages: moderncv colortbl fontawesome
       - name: Upload PDF to the workflow tab
-        id: upload-workflow-tab
+        id: upload-workflow-tab-fontawersome
         uses: actions/upload-artifact@v2
         with:
           name: output-fontawesome
