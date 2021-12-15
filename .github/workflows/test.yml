@@ -22,7 +22,7 @@ jobs:
         uses: ./
         with:
           output_dir: output
-          main_latex_file: test.tex
+          main_latex_file: resources/test.tex
           ctan_packages: amssymb latexsym amsmath
       - name: Upload PDF to the workflow tab
         id: upload-workflow-tab-maths
@@ -36,7 +36,7 @@ jobs:
         uses: ./
         with:
           output_dir: output
-          main_latex_file: test-fontawesome.tex
+          main_latex_file: resources/test-fontawesome.tex
           ctan_packages: moderncv colortbl fontawesome
       - name: Upload PDF to the workflow tab
         id: upload-workflow-tab-fontawersome
@@ -44,3 +44,18 @@ jobs:
         with:
           name: output-fontawesome
           path: output/test-fontawesome.pdf
+
+      - name: Compile LaTeX document with TOC
+        id: compile-latex-document-with-toc
+        uses: ./
+        with:
+          output_dir: output
+          main_latex_file: resources/test-toc.tex
+          ctan_packages:
+          toc: true
+      - name: Upload PDF to the workflow tab
+        id: upload-workflow-tab-fontawersome
+        uses: actions/upload-artifact@v2
+        with:
+          name: output-toc
+          path: output/test-toc.pdf

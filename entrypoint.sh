@@ -3,6 +3,7 @@
 echo "OUTPUT_DIR: $OUTPUT_DIR"
 echo "MAIN_LATEX_FILE: $MAIN_LATEX_FILE"
 echo "CTAN_PACKAGES: $CTAN_PACKAGES"
+echo "TOC: $TOC"
 
 tlmgr install xetex
 
@@ -13,6 +14,10 @@ else
 fi
 
 mkdir -p $OUTPUT_DIR
+
+if [ "$TOC" = true ] ; then
+	lualatex $MAIN_LATEX_FILE
+fi
 
 lualatex -output-directory $OUTPUT_DIR $MAIN_LATEX_FILE
 

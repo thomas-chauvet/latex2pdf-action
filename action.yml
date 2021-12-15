@@ -17,6 +17,11 @@ inputs:
       "Extra package from CTAN to install.
       List of packages available [here](http://mirror.ctan.org/systems/texlive/tlnet/archive). 
       Each package must be separated by a space (ex: "moderncv xargs")."
+  toc:
+    description: >-
+      "If there's is a TOC in your LaTeX document put this flag to true.
+      It will compile the doc twice to generate the TOC."
+    default: false
 runs:
   using: 'docker'
   image: 'Dockerfile'

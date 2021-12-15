@@ -67,7 +67,7 @@ docker run \
   -e OUTPUT_DIR="output" \
   -e MAIN_LATEX_FILE="test.tex" \
   -e CTAN_PACKAGES="amssymb latexsym amsmath" \
-  -v "${PWD}/test.tex":"/test.tex" \
+  -v "${PWD}/resources/test.tex":"/test.tex" \
   -v "${PWD}/output":"/output" \
   latex2pdf
 ```
