@@ -52,6 +52,26 @@ jobs:
 
 You can find a more complete example in my [CV repository](https://github.com/thomas-chauvet/cv_latex) with everything to release the PDF document.
 
+# Development
+
+## Test locally
+
+Build docker image:
+```bash
+docker build -t latex2pdf .
+```
+
+Run the example:
+```bash
+docker run \
+  -e OUTPUT_DIR="output" \
+  -e MAIN_LATEX_FILE="test.tex" \
+  -e CTAN_PACKAGES="amssymb latexsym amsmath" \
+  -v "${PWD}/test.tex":"/test.tex" \
+  -v "${PWD}/output":"/output" \
+  latex2pdf
+```
+
 # Notes
 
 The `Docker` images used to compile the document is based on `Ubuntu` and the excellent work of @Yihui for [TinyTeX](https://github.com/yihui/tinytex). It allows the image to stay relatively small and use only what is needed.
