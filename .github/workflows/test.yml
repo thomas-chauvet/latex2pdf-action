@@ -39,7 +39,7 @@ jobs:
           main_latex_file: resources/test-fontawesome.tex
           ctan_packages: moderncv colortbl fontawesome
       - name: Upload PDF to the workflow tab
-        id: upload-workflow-tab-fontawersome
+        id: upload-workflow-tab-fontawesome
         uses: actions/upload-artifact@v2
         with:
           name: output-fontawesome
@@ -54,7 +54,7 @@ jobs:
           ctan_packages:
           toc: true
       - name: Upload PDF to the workflow tab
-        id: upload-workflow-tab-fontawersome
+        id: upload-workflow-tab-toc
         uses: actions/upload-artifact@v2
         with:
           name: output-toc
