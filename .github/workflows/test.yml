@@ -37,7 +37,7 @@ jobs:
         with:
           output_dir: output
           main_latex_file: resources/test-fontawesome.tex
-          ctan_packages: moderncv colortbl fontawesome
+          ctan_packages: moderncv colortbl fontawesome lua-uni-algos
       - name: Upload PDF to the workflow tab
         id: upload-workflow-tab-fontawesome
         uses: actions/upload-artifact@v2
@@ -51,7 +51,7 @@ jobs:
         with:
           output_dir: output
           main_latex_file: resources/test-toc.tex
-          ctan_packages:
+          ctan_packages: lua-uni-algos
           toc: true
       - name: Upload PDF to the workflow tab
         id: upload-workflow-tab-toc
