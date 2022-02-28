@@ -23,7 +23,7 @@ jobs:
         with:
           output_dir: output
           main_latex_file: resources/test.tex
-          ctan_packages: amsmath amsfonts
+          ctan_packages: amsmath amsfonts lua-uni-algos
       - name: Upload PDF to the workflow tab
         id: upload-workflow-tab-maths
         uses: actions/upload-artifact@v2
