@@ -2,13 +2,14 @@
 
 # latex2pdf-action
 
-GitHub action to convert LaTeX document in PDF file
+GitHub action to convert LaTeX document in PDF file with `LuaTeX`.
 
 # Parameters
 
 - `output_dir`: use it to get the PDF file at a specific location at the end of the compilation.
 - `main_latex_file`: main latex file to convert (ex: `main.tex`).
 - `ctan_packages`: Extra package from CTAN to install. List of packages available [here](http://mirror.ctan.org/systems/texlive/tlnet/archive). Each package must be separated by a space (ex: "moderncv xargs")."
+- `toc`: boolean to add ToC or not. Default `false`. It will compile the document twice to generate the ToC with `LuaTeX`.
 
 # Use it in your pipeline
 
@@ -37,11 +38,11 @@ jobs:
         uses: actions/checkout@v2
       - name: latex2pdf
         id: compile-latex-document
-        uses: thomas-chauvet/latex2pdf-action@1.0.3
+        uses: thomas-chauvet/latex2pdf-action@1.0.5
         with:
           output_dir: output
           main_latex_file: test.tex
-          ctan_packages: amssymb latexsym amsmath
+          ctan_packages: amsmath amsfonts lua-uni-algos
       - name: Upload PDF to the workflow tab
         id: upload-workflow-tab
         uses: actions/upload-artifact@v2
