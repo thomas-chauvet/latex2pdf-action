@@ -15,7 +15,7 @@ GitHub action to convert LaTeX document in PDF file with `LuaTeX`.
 
 You can refer to the [example](https://github.com/thomas-chauvet/latex2pdf-action/blob/master/.github/workflows/test.yml) attached in this repository.
 
-In the example below we compile the document in PDF and upload as an artefact of the pipeline:
+In the example below we compile the document in PDF and upload as an artifact of the pipeline:
 
 ```yml
 name: LateX to PDF
