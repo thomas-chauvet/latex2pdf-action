@@ -23,6 +23,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added Contributing section to README
 - Added License information to README
 - Added test validation section to documentation
+- Added pre-commit configuration for automated code quality checks (ShellCheck, Hadolint, Prettier, etc.)
+- Added Code Quality section to README with pre-commit setup instructions
 
 ### Fixed
 - Fixed missing TOC environment variable in action.yml that prevented the feature from working

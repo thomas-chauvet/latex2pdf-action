@@ -81,6 +81,16 @@ docker run \
   latex2pdf
 ```
 
+## Code Quality
+
+This project uses pre-commit hooks to maintain code quality. Install them with:
+```bash
+pip install pre-commit
+pre-commit install
+```
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for more details.
+
 # Contributing
 
 Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to contribute to this project.
