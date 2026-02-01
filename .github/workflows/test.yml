@@ -3,19 +3,19 @@ name: LateX CV to PDF
 on:
   push:
     branches: 
-      - master
+      - main
       - develop
     tags:
        - '*'
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   build_latex:
     runs-on: ubuntu-latest
     steps:
       - name: Set up Git repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Compile test LaTeX document with Maths
         id: compile-latex-document-with-maths
@@ -26,7 +26,7 @@ jobs:
           ctan_packages: amsmath amsfonts lua-uni-algos
       - name: Upload PDF to the workflow tab
         id: upload-workflow-tab-maths
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: output
           path: output/test.pdf
@@ -40,7 +40,7 @@ jobs:
           ctan_packages: moderncv colortbl fontawesome lua-uni-algos
       - name: Upload PDF to the workflow tab
         id: upload-workflow-tab-fontawesome
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: output-fontawesome
           path: output/test-fontawesome.pdf
@@ -55,7 +55,7 @@ jobs:
           toc: true
       - name: Upload PDF to the workflow tab
         id: upload-workflow-tab-toc
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: output-toc
           path: output/test-toc.pdf
