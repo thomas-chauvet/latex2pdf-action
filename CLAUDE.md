@@ -39,7 +39,7 @@ docker run -e OUTPUT_DIR="output" -e MAIN_LATEX_FILE="test.tex" \
 
 ### CI
 
-The workflow in `.github/workflows/test.yml` triggers on pushes to `master`/`develop`, tags, and PRs to `master`. It runs 3 parallel jobs testing different LaTeX features (math, fontawesome, TOC) and uploads PDF artifacts.
+The workflow in `.github/workflows/test.yml` triggers on pushes to `main`/`develop`, tags, and PRs to `main`. It runs 3 parallel jobs testing different LaTeX features (math, fontawesome, TOC) and uploads PDF artifacts.
 
 ## Coding Conventions
 

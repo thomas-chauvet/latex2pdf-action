@@ -2,7 +2,7 @@ name: LateX CV to PDF
 
 on:
   push:
-    branches: 
+    branches:
       - main
       - develop
     tags:
