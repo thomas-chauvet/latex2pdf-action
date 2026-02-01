@@ -1,4 +1,10 @@
 README.md
+CONTRIBUTING.md
+CHANGELOG.md
 action.yml
 test.tex
 .github
+.git
+.gitignore
+resources/README.md
+output

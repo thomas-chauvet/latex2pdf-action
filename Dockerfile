@@ -1,4 +1,4 @@
-FROM ubuntu:bionic
+FROM ubuntu:24.04
 
 WORKDIR /var/local
 

@@ -29,3 +29,4 @@ runs:
     OUTPUT_DIR: ${{ inputs.output_dir }}
     MAIN_LATEX_FILE: ${{ inputs.main_latex_file }}
     CTAN_PACKAGES: ${{ inputs.ctan_packages }}
+    TOC: ${{ inputs.toc }}

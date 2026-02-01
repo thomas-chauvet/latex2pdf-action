@@ -2,7 +2,15 @@
 
 # latex2pdf-action
 
-GitHub action to convert LaTeX document in PDF file with `LuaTeX`.
+GitHub action to convert LaTeX documents to PDF files using `LuaTeX`.
+
+## Features
+
+- Compile LaTeX documents to PDF using LuaTeX
+- Support for custom CTAN packages
+- Table of Contents (ToC) generation with double compilation
+- Based on lightweight TinyTeX distribution
+- Ubuntu 24.04 LTS base image for security and stability
 
 # Parameters
 
@@ -13,7 +21,7 @@ GitHub action to convert LaTeX document in PDF file with `LuaTeX`.
 
 # Use it in your pipeline
 
-You can refer to the [example](https://github.com/thomas-chauvet/latex2pdf-action/blob/master/.github/workflows/test.yml) attached in this repository.
+You can refer to the [example](https://github.com/thomas-chauvet/latex2pdf-action/blob/main/.github/workflows/test.yml) attached in this repository.
 
 In the example below we compile the document in PDF and upload as an artefact of the pipeline:
 
@@ -23,19 +31,19 @@ name: LateX to PDF
 on:
   push:
     branches: 
-      - master
+      - main
       - develop
     tags:
        - '*'
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   build_latex:
     runs-on: ubuntu-latest
     steps:
       - name: Set up Git repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: latex2pdf
         id: compile-latex-document
         uses: thomas-chauvet/latex2pdf-action@1.0.5
@@ -45,7 +53,7 @@ jobs:
           ctan_packages: amsmath amsfonts lua-uni-algos
       - name: Upload PDF to the workflow tab
         id: upload-workflow-tab
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: output
           path: output/test.pdf
@@ -73,6 +81,18 @@ docker run \
   latex2pdf
 ```
 
+# Contributing
+
+Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to contribute to this project.
+
+## Running Tests
+
+The project includes automated tests that run on every push. You can see the test workflow in [.github/workflows/test.yml](.github/workflows/test.yml).
+
 # Notes
 
-The `Docker` images used to compile the document is based on `Ubuntu` and the excellent work of @Yihui for [TinyTeX](https://github.com/yihui/tinytex). It allows the image to stay relatively small and use only what is needed.
+The Docker image used to compile documents is based on Ubuntu 24.04 LTS and the excellent work of [@Yihui](https://github.com/yihui) for [TinyTeX](https://github.com/yihui/tinytex). This allows the image to stay relatively small and use only what is needed.
+
+## License
+
+This project is open source and available under the MIT License.

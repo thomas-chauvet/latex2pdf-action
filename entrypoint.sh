@@ -1,4 +1,5 @@
 #!/bin/sh -l
+set -e
 
 echo "OUTPUT_DIR: $OUTPUT_DIR"
 echo "MAIN_LATEX_FILE: $MAIN_LATEX_FILE"
@@ -22,4 +23,4 @@ fi
 lualatex -output-directory $OUTPUT_DIR $MAIN_LATEX_FILE
 
 time=$(date)
-echo "::set-output name=time::$time"
+echo "time=$time" >> $GITHUB_OUTPUT
