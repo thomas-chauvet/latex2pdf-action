@@ -41,6 +41,7 @@ docker run \
   -e MAIN_LATEX_FILE="test.tex" \
   -e CTAN_PACKAGES="amsmath amsfonts lua-uni-algos" \
   -v "${PWD}/resources/test.tex":"/test.tex" \
+  -v "${PWD}/output":"/output" \
   latex2pdf
 ```
 
