@@ -1,4 +1,4 @@
-name: LateX CV to PDF
+name: Test LaTeX to PDF
 
 on:
   push:
@@ -6,9 +6,12 @@ on:
       - main
       - develop
     tags:
-       - '*'
+      - "*"
   pull_request:
-    branches: [ main ]
+    branches: [main]
+
+permissions:
+  contents: read
 
 jobs:
   build_latex:
@@ -18,43 +21,37 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Compile test LaTeX document with Maths
-        id: compile-latex-document-with-maths
         uses: ./
         with:
           output_dir: output
           main_latex_file: resources/test.tex
           ctan_packages: amsmath amsfonts lua-uni-algos
-      - name: Upload PDF to the workflow tab
-        id: upload-workflow-tab-maths
+      - name: Upload PDF - Maths
         uses: actions/upload-artifact@v4
         with:
-          name: output
+          name: output-maths
           path: output/test.pdf
-      
+
       - name: Compile LaTeX document with fontawesome
-        id: compile-latex-document-with-fontawesome
         uses: ./
         with:
           output_dir: output
           main_latex_file: resources/test-fontawesome.tex
           ctan_packages: moderncv colortbl fontawesome lua-uni-algos
-      - name: Upload PDF to the workflow tab
-        id: upload-workflow-tab-fontawesome
+      - name: Upload PDF - Fontawesome
         uses: actions/upload-artifact@v4
         with:
           name: output-fontawesome
           path: output/test-fontawesome.pdf
 
       - name: Compile LaTeX document with TOC
-        id: compile-latex-document-with-toc
         uses: ./
         with:
           output_dir: output
           main_latex_file: resources/test-toc.tex
           ctan_packages: lua-uni-algos
           toc: true
-      - name: Upload PDF to the workflow tab
-        id: upload-workflow-tab-toc
+      - name: Upload PDF - TOC
         uses: actions/upload-artifact@v4
         with:
           name: output-toc

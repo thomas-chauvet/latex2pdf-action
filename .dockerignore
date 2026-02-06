@@ -1,10 +1,12 @@
 README.md
 CONTRIBUTING.md
 CHANGELOG.md
+CLAUDE.md
+LICENSE
 action.yml
-test.tex
 .github
 .git
 .gitignore
+.pre-commit-config.yaml
 resources/README.md
 output

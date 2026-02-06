@@ -1,30 +1,32 @@
-name: 'latex2pdf'
-description: 'Convert LaTeX file into PDF file.'
+name: "latex2pdf"
+description: "Convert LaTeX file into PDF file."
 branding:
-  icon: 'check-circle'
-  color: 'green'
+  icon: "check-circle"
+  color: "green"
 inputs:
   output_dir:
-    description: "Output directory to store the pdf file."
+    description: "Output directory to store the PDF file."
     required: true
-    default: ""
-  main_latex_file: 
-    description: "Main latex file to convert in PDF (for intance `cv.tex`)."
+  main_latex_file:
+    description: "Main LaTeX file to convert to PDF (for instance `cv.tex`)."
     default: "main.tex"
     required: true
   ctan_packages:
     description: >-
-      "Extra package from CTAN to install.
-      List of packages available [here](http://mirror.ctan.org/systems/texlive/tlnet/archive). 
-      Each package must be separated by a space (ex: "moderncv xargs")."
+      Extra packages from CTAN to install.
+      List of packages available [here](https://mirror.ctan.org/systems/texlive/tlnet/archive).
+      Each package must be separated by a space (e.g. "moderncv xargs").
   toc:
     description: >-
-      "If there's is a TOC in your LaTeX document put this flag to true.
-      It will compile the doc twice to generate the TOC."
+      If there is a TOC in your LaTeX document put this flag to true.
+      It will compile the doc twice to generate the TOC.
     default: false
+outputs:
+  time:
+    description: "Timestamp of when the PDF compilation completed."
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: "docker"
+  image: "Dockerfile"
   env:
     OUTPUT_DIR: ${{ inputs.output_dir }}
     MAIN_LATEX_FILE: ${{ inputs.main_latex_file }}

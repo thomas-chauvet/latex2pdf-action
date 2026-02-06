@@ -1,4 +1,4 @@
-![LateX CV to PDF](https://github.com/thomas-chauvet/latex2pdf-action/workflows/LateX%20CV%20to%20PDF/badge.svg)
+![Test LaTeX to PDF](https://github.com/thomas-chauvet/latex2pdf-action/actions/workflows/test.yml/badge.svg)
 
 # latex2pdf-action
 
@@ -12,31 +12,35 @@ GitHub action to convert LaTeX documents to PDF files using `LuaTeX`.
 - Based on lightweight TinyTeX distribution
 - Ubuntu 24.04 LTS base image for security and stability
 
-# Parameters
+## Parameters
 
 - `output_dir`: use it to get the PDF file at a specific location at the end of the compilation.
-- `main_latex_file`: main latex file to convert (ex: `main.tex`).
-- `ctan_packages`: Extra package from CTAN to install. List of packages available [here](http://mirror.ctan.org/systems/texlive/tlnet/archive). Each package must be separated by a space (ex: "moderncv xargs")."
+- `main_latex_file`: main LaTeX file to convert (e.g. `main.tex`).
+- `ctan_packages`: Extra packages from CTAN to install. List of packages available [here](https://mirror.ctan.org/systems/texlive/tlnet/archive). Each package must be separated by a space (e.g. "moderncv xargs").
 - `toc`: boolean to add ToC or not. Default `false`. It will compile the document twice to generate the ToC with `LuaTeX`.
 
-# Use it in your pipeline
+## Outputs
+
+- `time`: Timestamp of when the PDF compilation completed. Access it via `${{ steps.<step-id>.outputs.time }}`.
+
+## Usage
 
 You can refer to the [example](https://github.com/thomas-chauvet/latex2pdf-action/blob/main/.github/workflows/test.yml) attached in this repository.
 
 In the example below we compile the document in PDF and upload as an artefact of the pipeline:
 
 ```yml
-name: LateX to PDF
+name: LaTeX to PDF
 
 on:
   push:
-    branches: 
+    branches:
       - main
       - develop
     tags:
-       - '*'
+      - "*"
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build_latex:
@@ -46,7 +50,7 @@ jobs:
         uses: actions/checkout@v4
       - name: latex2pdf
         id: compile-latex-document
-        uses: thomas-chauvet/latex2pdf-action@1.1.0
+        uses: thomas-chauvet/latex2pdf-action@v2
         with:
           output_dir: output
           main_latex_file: test.tex
@@ -61,29 +65,32 @@ jobs:
 
 You can find a more complete example in my [CV repository](https://github.com/thomas-chauvet/cv_latex) with everything to release the PDF document.
 
-# Development
+## Development
 
-## Test locally
+### Test locally
 
 Build docker image:
+
 ```bash
 docker build -t latex2pdf .
 ```
 
 Run the example:
+
 ```bash
 docker run \
   -e OUTPUT_DIR="output" \
   -e MAIN_LATEX_FILE="test.tex" \
-  -e CTAN_PACKAGES="amssymb latexsym amsmath" \
+  -e CTAN_PACKAGES="amsmath amsfonts lua-uni-algos" \
   -v "${PWD}/resources/test.tex":"/test.tex" \
   -v "${PWD}/output":"/output" \
   latex2pdf
 ```
 
-## Code Quality
+### Code Quality
 
 This project uses pre-commit hooks to maintain code quality. Install them with:
+
 ```bash
 pip install pre-commit
 pre-commit install
@@ -91,18 +98,18 @@ pre-commit install
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for more details.
 
-# Contributing
+## Contributing
 
 Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to contribute to this project.
 
-## Running Tests
+### Running Tests
 
 The project includes automated tests that run on every push. You can see the test workflow in [.github/workflows/test.yml](.github/workflows/test.yml).
 
-# Notes
+## Notes
 
 The Docker image used to compile documents is based on Ubuntu 24.04 LTS and the excellent work of [@Yihui](https://github.com/yihui) for [TinyTeX](https://github.com/yihui/tinytex). This allows the image to stay relatively small and use only what is needed.
 
 ## License
 
-This project is open source and available under the MIT License.
+This project is open source and available under the [MIT License](LICENSE).

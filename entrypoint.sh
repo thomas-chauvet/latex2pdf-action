@@ -6,21 +6,24 @@ echo "MAIN_LATEX_FILE: $MAIN_LATEX_FILE"
 echo "CTAN_PACKAGES: $CTAN_PACKAGES"
 echo "TOC: $TOC"
 
+: "${OUTPUT_DIR:?}" "${MAIN_LATEX_FILE:?}"
+
 tlmgr install xetex
 
 if [ -z "$CTAN_PACKAGES" ] ; then
-	echo No package to install;
+	echo "No package to install"
 else
-	tlmgr install $CTAN_PACKAGES;
+	# shellcheck disable=SC2086
+	tlmgr install $CTAN_PACKAGES
 fi
 
-mkdir -p $OUTPUT_DIR
+mkdir -p "$OUTPUT_DIR"
 
 if [ "$TOC" = true ] ; then
-	lualatex $MAIN_LATEX_FILE
+	lualatex -output-directory "$OUTPUT_DIR" "$MAIN_LATEX_FILE"
 fi
 
-lualatex -output-directory $OUTPUT_DIR $MAIN_LATEX_FILE
+lualatex -output-directory "$OUTPUT_DIR" "$MAIN_LATEX_FILE"
 
 time=$(date)
-echo "time=$time" >> $GITHUB_OUTPUT
+echo "time=$time" >> "$GITHUB_OUTPUT"
