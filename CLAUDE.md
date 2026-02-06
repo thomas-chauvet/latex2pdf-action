@@ -40,7 +40,7 @@ GitHub Action that converts LaTeX documents to PDF using LuaTeX. It runs inside 
 docker build -t latex2pdf .
 docker run -e OUTPUT_DIR="output" -e MAIN_LATEX_FILE="test.tex" \
   -e CTAN_PACKAGES="amsmath amsfonts lua-uni-algos" \
-  -v "${PWD}/resources:/var/local" latex2pdf
+  -v "${PWD}/resources/test.tex":"/test.tex" latex2pdf
 ```
 
 ### Pre-commit hooks
