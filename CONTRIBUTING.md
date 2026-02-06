@@ -8,7 +8,7 @@ Thank you for your interest in contributing to latex2pdf-action! This document p
 
 - Docker installed on your system
 - Git for version control
-- Python 3.7+ and pip (for pre-commit hooks)
+- Python 3.9+ and pip (for pre-commit hooks)
 - A GitHub account
 
 ### Local Development
@@ -35,9 +35,8 @@ pre-commit install
 docker run \
   -e OUTPUT_DIR="output" \
   -e MAIN_LATEX_FILE="test.tex" \
-  -e CTAN_PACKAGES="amssymb latexsym amsmath" \
-  -v "${PWD}/resources/test.tex":"/test.tex" \
-  -v "${PWD}/output":"/output" \
+  -e CTAN_PACKAGES="amsmath amsfonts lua-uni-algos" \
+  -v "${PWD}/resources:/var/local" \
   latex2pdf
 ```
 
