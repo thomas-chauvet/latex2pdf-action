@@ -1,8 +1,8 @@
-name: 'latex2pdf'
-description: 'Convert LaTeX file into PDF file.'
+name: "latex2pdf"
+description: "Convert LaTeX file into PDF file."
 branding:
-  icon: 'check-circle'
-  color: 'green'
+  icon: "check-circle"
+  color: "green"
 inputs:
   output_dir:
     description: "Output directory to store the PDF file."
@@ -26,8 +26,8 @@ outputs:
   time:
     description: "Timestamp of when the PDF compilation completed."
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: "docker"
+  image: "Dockerfile"
   env:
     OUTPUT_DIR: ${{ inputs.output_dir }}
     MAIN_LATEX_FILE: ${{ inputs.main_latex_file }}

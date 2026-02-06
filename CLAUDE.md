@@ -75,13 +75,13 @@ The workflow in `.github/workflows/test.yml` triggers on pushes to `main`/`devel
 
 ## Common Tasks
 
-| Task | Command |
-| --- | --- |
-| Build Docker image | `docker build -t latex2pdf .` |
-| Run action locally | See Docker run example above |
-| Run pre-commit hooks | `pre-commit run --all-files` |
-| Add a new test | Create `.tex` in `resources/`, add step in `test.yml` |
-| Add a new input | Update `action.yml` inputs + `entrypoint.sh` logic |
+| Task                 | Command                                               |
+| -------------------- | ----------------------------------------------------- |
+| Build Docker image   | `docker build -t latex2pdf .`                         |
+| Run action locally   | See Docker run example above                          |
+| Run pre-commit hooks | `pre-commit run --all-files`                          |
+| Add a new test       | Create `.tex` in `resources/`, add step in `test.yml` |
+| Add a new input      | Update `action.yml` inputs + `entrypoint.sh` logic    |
 
 ## External LLMs
 

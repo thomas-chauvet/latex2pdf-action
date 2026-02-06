@@ -14,23 +14,27 @@ Thank you for your interest in contributing to latex2pdf-action! This document p
 ### Local Development
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/thomas-chauvet/latex2pdf-action.git
 cd latex2pdf-action
 ```
 
 2. Build the Docker image:
+
 ```bash
 docker build -t latex2pdf .
 ```
 
 3. Install pre-commit hooks for code quality:
+
 ```bash
 pip install pre-commit
 pre-commit install
 ```
 
 4. Test locally with the provided test files:
+
 ```bash
 docker run \
   -e OUTPUT_DIR="output" \
@@ -52,11 +56,13 @@ This project uses pre-commit hooks to ensure code quality. The hooks run automat
 - **Markdown and YAML formatting** (Prettier)
 
 To run the hooks manually on all files:
+
 ```bash
 pre-commit run --all-files
 ```
 
 To skip hooks temporarily (not recommended):
+
 ```bash
 git commit --no-verify
 ```
